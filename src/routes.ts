@@ -4,6 +4,7 @@ import { AuthenticateDeliverymanController } from "./modules/account/authenticat
 import { CreateClientController } from "./modules/clients/useCases/CreateClientController";
 import { CreateDeliverymanController } from "./modules/deliveryman/useCases/CreateDeliverymanController";
 import { CreateDeliveryController } from './modules/deliveries/createDelivery/CreateDeliveryController';
+import { ensureAuthenticateClient } from "./middlewares/ensureAuthenticateClient";
 
 
 const routes =Router()
@@ -25,7 +26,7 @@ routes.post ('/deliveryman/signup', createDeliverymanController.handler)
 routes.post ('/deliveryman/signin', authenticateDeliverymanController.handler)
 
 //deliveries routes
-routes.post ('/delivery/create', createDeliveryController.handler)
+routes.post ('/delivery/create', ensureAuthenticateClient, createDeliveryController.handler)
 
 
 
