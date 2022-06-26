@@ -10,6 +10,7 @@ export class UpdateDeliverymanUseCase{
 
     async execute({id_deliveryman,id_delivery, }:IUpdateDeliveryman){
 
+ 
         const result = await prisma.deliveries.update({
             where:{
                 id:id_delivery
