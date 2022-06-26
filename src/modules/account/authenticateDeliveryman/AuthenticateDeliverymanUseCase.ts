@@ -31,7 +31,7 @@ if(!passwordMatch){
 }     
 
 // gerar token
-const token = sign({username}, "5f65c3eb1b98f636d3c797ec5ccc151d",{
+const token = sign({username}, "0868b879b4b257dae1fad9b7afaa2427",{
     subject:deliveryman.id,
     expiresIn: "1d"
     })

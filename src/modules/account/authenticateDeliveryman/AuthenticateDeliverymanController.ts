@@ -6,7 +6,7 @@ import { AuthenticateDeliverymanUseCase } from "./AuthenticateDeliverymanUseCase
 
 export class AuthenticateDeliverymanController{
 
-async handler(request:Request, response:Response) {
+async handle(request:Request, response:Response) {
     const authenticateDeliverymanUseCase = new AuthenticateDeliverymanUseCase()
     const { username, password}= request.body
 
