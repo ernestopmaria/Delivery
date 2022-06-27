@@ -1,3 +1,4 @@
+import { UpdateEndDateController } from './modules/deliveries/updateEndDate/UpdateEndDateController';
 import { UpdateDeliverymanController } from './modules/deliveries/updateDeliveryman/useCases/UpdateDeliverymanController';
 import { Router } from "express";
 import { AuthenticateClientController } from "./modules/account/authenticateClient/AuthenticateClientController";
@@ -26,6 +27,7 @@ const updateDeliverymanController = new UpdateDeliverymanController()
 const findAllDeliveriesClientController= new FindAllDeliveriesController()
 
 const findAllDeliveriesDeliverymanController = new FindAllDeliveriesDeliverymanController()
+const updateEndDate = new UpdateEndDateController()
 
 
 //client routes
@@ -43,6 +45,7 @@ routes.get ('/deliveryman/deliveries', ensureauthenticateDeliveryman, findAllDel
 routes.post ('/delivery/create', ensureAuthenticateClient, createDeliveryController.handle)
 routes.get ('/delivery/available', ensureauthenticateDeliveryman,  findAllAvailableController.handle)
 routes.put ('/delivery/update/:id', ensureauthenticateDeliveryman,  updateDeliverymanController.handle)
+routes.put ('/delivery/updateEndDate/:id', ensureauthenticateDeliveryman,  updateEndDate.handle)
 
 
 export {routes}
